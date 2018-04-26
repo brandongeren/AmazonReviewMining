@@ -30,6 +30,7 @@ def getDF(path):
 
 def add_sentiment_column(df):
   df.dropna(subset=["reviewText"])
-  df["sentimentScores"] = df.summary.apply(return_sentiment_scores)
-
+  df['negative'], df['neutral'], df['positive'], df['compound'] = zip(*df['reviewText'].map(return_sentiment_scores))
+  df.drop('compound')
+  return df
 
