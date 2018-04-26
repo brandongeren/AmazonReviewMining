@@ -8,9 +8,8 @@ def parse(path):
     j= o.readlines()
     for line in j:
         jsonObject = json.loads(line)
-        print(jsonObject['reviewText'])
-        print('--------------')
+        return (jsonObject['reviewText'])
     o.close()
 
 #here goes the variable to use the api
-parse('reviews_Musical_Instruments_5.json')
+parse('Books_5.json')
