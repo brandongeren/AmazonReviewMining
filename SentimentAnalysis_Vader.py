@@ -15,19 +15,6 @@ def return_sentiment_scores(sentence):
   compound = sentiment['compound']
   return negative, neutral, positive, compound
 
-def parse(path):
-  g = gzip.open(path, 'rb')
-  for l in g:
-    yield eval(l)
-
-def getDF(path):
-  i = 0
-  df = {}
-  for d in parse(path):
-    df[i] = d
-    i += 1
-  return pd.DataFrame.from_dict(df, orient='index')
-
 def add_sentiment_column(df):
   df.dropna(subset=["reviewText"])
   df['negative'], df['neutral'], df['positive'], df['compound'] = zip(*df['reviewText'].map(return_sentiment_scores))
