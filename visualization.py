@@ -8,5 +8,7 @@ def plot_distribution(df, colname, filename):
 	ratings = df[colname].value_counts().sort_index()
 	ratings = ratings.to_frame()
 	ratings['index'] = ratings.index
-	ax = sns.barplot(x="index", y=colname, data=ratings)
+	ratings['Rating'] = ratings['index']
+	ratings['Frequency'] = ratings[colname]
+	ax = sns.barplot(x='Rating', y='Frequency', data=ratings)
 	plt.savefig(filename)
