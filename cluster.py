@@ -18,9 +18,4 @@ def jsonToPanda(path):
             line = line[:-1]
         df[times] = json.loads(line)
         times = times +1
-    return df
-
-values =(jsonToPanda('years/2005.json'))
-#products is a panda 
-product = pd.DataFrame.from_dict(values,orient = 'index')
-print(product.head())
+    return pd.DataFrame.from_dict(df,orient = 'index')
