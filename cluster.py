@@ -2,13 +2,7 @@
 import pandas as pd
 import json
 
-def getDF(path):
-    i= 0
-    df= {}
-#    for d in parse(path):
-#        df[i]= d
-#        i += i
-
+#return a dictionary containt all the json objects
 def jsonToPanda(path):
     file = open(path, 'r')
     r = file.readlines()
