@@ -12,9 +12,9 @@ def make_csv(filename):
   df = getDF(filename)
   df_with_sentiment = df[['reviewText', 'asin', 'overall', 'unixReviewTime', 'helpful', 'reviewerID']]
   df_with_sentiment = add_sentiment_column(df_with_sentiment)
-  df_with_sentiment.to_csv(filename.split('.')[1] + '.csv', index=False)
+  df_with_sentiment.to_csv('/work/cse496dl/bgeren/' + 'data_with_sentiment.csv', index=False)
   df_with_sentiment = split_helpful(df_with_sentiment)
-  df_with_sentiment.to_csv(filename.split('.')[1] + '.csv', index=False)
+  df_with_sentiment.to_csv('/work/cse496dl/bgeren/' + 'data_with_sentiment.csv', index=False)
   return df_with_sentiment
 
 args = parser.parse_args()
