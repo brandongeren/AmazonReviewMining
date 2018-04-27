@@ -4,6 +4,8 @@ from import_as_pandas import getDF
 from split_helpful import *
 from argparse import ArgumentParser
 
+parser = ArgumentParser()
+
 parser.add_argument('filename', type=str, help="filename for Amazon data")
 
 def make_csv(filename):
