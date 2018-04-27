@@ -18,4 +18,6 @@ def make_csv(filename):
   df_with_sentiment.to_csv(filename.split('.')[1] + '.csv', index=False)
   return df_with_sentiment
 
+args = parser.parse_args()
+
 make_csv(args.filename)
