@@ -18,6 +18,5 @@ def return_sentiment_scores(sentence):
 def add_sentiment_column(df):
   df.dropna(subset=["reviewText"])
   df['negative'], df['neutral'], df['positive'], df['compound'] = zip(*df['reviewText'].map(return_sentiment_scores))
-  df.drop('compound')
   return df
 
